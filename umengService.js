@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('h5')
+        .module('utilities')
         .factory('umeng', umengService);
 
-    umengService.$inject = ['Menu', '$rootScope'];
+    umengService.$inject = [];
 
     /*
      * @class 友盟统计
@@ -14,13 +14,12 @@
      * 接口列表：http://open.cnzz.com/a/api/apilist/
      * 测试工具：http://open.cnzz.com/a/tool/
      */
-    function umengService(Menu, $rootScope)
+    function umengService()
     {
         var service =
             {
                 trackEvent: _trackEvent,
-                trackPageview: _trackPageview,
-                currentCategory: _currentCategory
+                trackPageview: _trackPageview
             };
 
         return service;
@@ -74,41 +73,6 @@
 
             try {
                 _czc.push(entity);
-            }
-            catch (err) {
-                console.error(err);
-            }
-        }
-
-        /**
-         * 根据当前页面生成统计用的category
-         */
-        function _currentCategory()
-        {
-            try
-            {
-                if (Menu && Menu.data.length > 0) {
-
-                    var page = Menu.selectedMenu;
-
-                    if (!page)
-                    {
-                        console.error('未找到页面');
-
-                        return "";
-                    }
-
-                    var category = page.Name;
-
-                    if (page && page.ParentMenuId) {
-
-                        page = Menu.findMenu(page.ParentMenuId);
-
-                        if (page.menu.Name) { category = page.main.Name + ' - ' + category; }
-                    }
-
-                    return category;
-                }
             }
             catch (err) {
                 console.error(err);
