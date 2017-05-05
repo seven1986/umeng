@@ -1,0 +1,22 @@
+{
+  "name": "umeng",
+  "version": "1.0.0",
+  "description": "umeng event api sdk",
+  "main": "umengService.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seven1986/umeng.git"
+  },
+  "keywords": [
+    "umeng"
+  ],
+  "author": "seven1986",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seven1986/umeng/issues"
+  },
+  "homepage": "https://github.com/seven1986/umeng#readme"
+}
